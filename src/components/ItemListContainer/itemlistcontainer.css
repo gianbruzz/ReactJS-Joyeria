@@ -1,0 +1,31 @@
+.itemlistcontainer{
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+}
+.itemlistcontainer .itemlist{
+  display: flex;
+  flex-wrap: wrap;
+}
+.itemlistcontainer .item{
+  width: 20%;
+  margin: 3% 6%;
+  padding: 2%;
+  /* border: 2px solid rgb(196, 16, 16); */
+  
+  box-shadow: rgba(194, 129, 194, 0.5) 0px 3px 5px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.item .img-item{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+    border-radius: 1%;
+}
+.item .text-item{
+  padding: 1% 0;
+}

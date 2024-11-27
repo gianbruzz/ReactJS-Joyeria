@@ -1,5 +1,5 @@
 import React from "react";
-import { CartWidget } from "./CartWidget";
+import CartWidget from "./CartWidget";
 import { Link } from "react-router-dom";
 import "./navbar.css"
 
@@ -9,7 +9,9 @@ const NavBar = () => {
     <>
       <nav className="navbar">
       <Link to="/">
-          <p>JOYERÍA</p>
+        <div className="logo-container">
+         <img className="logo" src="/img/logo-sophie.png" alt="" />
+        </div>
         </Link>
         <ul className="navbar-links">
           <li className=" ">

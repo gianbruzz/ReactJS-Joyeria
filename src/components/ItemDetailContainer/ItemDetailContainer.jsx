@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react"
-import { getProducts } from "../../data/data.js"
+import db from "../../data/db.js"
+import { getDoc, doc } from "firebase/firestore"
 import { useParams } from "react-router-dom"
 import ItemDetail from "./ItemDetail.jsx"
 
@@ -8,12 +9,17 @@ const ItemDetailContainer = () => {
 
   const { idProduct } = useParams()
 
+  const getProductById = () => {
+    const docRef = doc( db, "products", idProduct )
+    getDoc(docRef)
+      .then((dataDb)=> {
+        const data = { id: dataDb.id, ...dataDb.data() }
+        setProduct(data)
+      })
+  }
+
   useEffect( ()=> {
-    getProducts()
-      .then((data)=> {
-        const findProduct = data.find((productData)=> productData.id === idProduct )
-        setProduct(findProduct)
-      } )
+    getProductById()
   }, [] )
 
   return (
